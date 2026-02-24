@@ -1,10 +1,10 @@
 :root {
-  --paper: #f9f5eb;
-  --ink: #1b1a17;
-  --muted: #59544b;
-  --accent: #8c2f1b;
-  --border: #c9c1b3;
-  --shadow: rgba(16, 13, 10, 0.1);
+  --paper: #ffffff;
+  --ink: #000000;
+  --muted: #4a4a4a;
+  --accent: #000000;
+  --border: #000000;
+  --shadow: rgba(0, 0, 0, 0.14);
 }
 
 * {
@@ -14,10 +14,7 @@
 body {
   margin: 0;
   color: var(--ink);
-  background:
-    radial-gradient(circle at 20% 10%, #fff8dd 0%, transparent 48%),
-    radial-gradient(circle at 90% 5%, #f8e9d3 0%, transparent 36%),
-    #ece6d9;
+  background: #ffffff;
   font-family: "Source Sans 3", "Trebuchet MS", sans-serif;
   line-height: 1.55;
 }
@@ -26,7 +23,7 @@ body {
   width: min(1120px, 92vw);
   margin: 2rem auto;
   padding: 2rem;
-  background: linear-gradient(180deg, #fdfaf2 0%, var(--paper) 100%);
+  background: var(--paper);
   border: 1px solid var(--border);
   box-shadow: 0 22px 46px var(--shadow);
 }
@@ -64,7 +61,7 @@ h1 {
 
 .divider {
   height: 2px;
-  background: linear-gradient(90deg, transparent 0%, var(--accent) 15%, var(--accent) 85%, transparent 100%);
+  background: var(--accent);
   margin: 0.9rem 0 1rem;
 }
 
@@ -97,9 +94,9 @@ a {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   object-position: center;
-  border: 6px solid #f3ebdc;
-  outline: 1px solid #ad9e86;
-  filter: saturate(0.95) contrast(1.03);
+  border: 6px solid #ffffff;
+  outline: 1px solid #000000;
+  filter: grayscale(1) contrast(1.05);
 }
 
 .kicker {
@@ -170,7 +167,7 @@ a {
 
 .doc-carousel {
   border: 1px solid var(--border);
-  background: #fffdf8;
+  background: #ffffff;
   padding: 0.8rem;
 }
 
@@ -184,7 +181,7 @@ a {
 
 .doc-nav {
   border: 1px solid var(--border);
-  background: #f4eee1;
+  background: #ffffff;
   color: var(--ink);
   cursor: pointer;
   height: 40px;
@@ -193,7 +190,7 @@ a {
 }
 
 .doc-nav:hover {
-  background: #ede3d0;
+  background: #efefef;
 }
 
 .doc-tools {
@@ -220,7 +217,7 @@ a {
   width: 100%;
   height: 620px;
   border: 1px solid var(--border);
-  background: #f5f0e5;
+  background: #ffffff;
 }
 
 .reveal {
