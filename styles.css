@@ -168,6 +168,20 @@ a {
   margin-top: 1.5rem;
 }
 
+.documents-intro {
+  margin-bottom: 0.8rem;
+}
+
+.documents-intro h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.documents-intro p {
+  margin: 0.45rem 0;
+}
+
 .doc-carousel {
   border: 1px solid var(--border);
   background: #fffdf8;
