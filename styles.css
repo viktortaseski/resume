@@ -1,10 +1,11 @@
 :root {
-  --paper: #f9f5eb;
-  --ink: #1b1a17;
-  --muted: #59544b;
-  --accent: #8c2f1b;
-  --border: #c9c1b3;
-  --shadow: rgba(16, 13, 10, 0.1);
+  --paper: #edf4ff;
+  --ink: #0f172a;
+  --muted: #4a607f;
+  --accent: #0f7bff;
+  --accent-2: #12d6ff;
+  --border: #bfd1eb;
+  --shadow: rgba(9, 20, 41, 0.14);
 }
 
 * {
@@ -15,10 +16,10 @@ body {
   margin: 0;
   color: var(--ink);
   background:
-    radial-gradient(circle at 20% 10%, #fff8dd 0%, transparent 48%),
-    radial-gradient(circle at 90% 5%, #f8e9d3 0%, transparent 36%),
-    #ece6d9;
-  font-family: "Source Sans 3", "Trebuchet MS", sans-serif;
+    radial-gradient(circle at 14% 8%, rgba(18, 214, 255, 0.28) 0%, transparent 43%),
+    radial-gradient(circle at 86% 6%, rgba(15, 123, 255, 0.22) 0%, transparent 40%),
+    linear-gradient(170deg, #f4f9ff 0%, #e7effd 58%, #edf4ff 100%);
+  font-family: "Space Grotesk", "Segoe UI", "Trebuchet MS", sans-serif;
   line-height: 1.55;
 }
 
@@ -26,9 +27,10 @@ body {
   width: min(1120px, 92vw);
   margin: 2rem auto;
   padding: 2rem;
-  background: linear-gradient(180deg, #fdfaf2 0%, var(--paper) 100%);
+  background: linear-gradient(180deg, #f8fbff 0%, var(--paper) 100%);
   border: 1px solid var(--border);
-  box-shadow: 0 22px 46px var(--shadow);
+  border-radius: 18px;
+  box-shadow: 0 24px 52px var(--shadow);
 }
 
 .masthead {
@@ -47,24 +49,25 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: "Cormorant Garamond", Georgia, serif;
+  font-family: "Sora", "Space Grotesk", sans-serif;
   margin: 0;
 }
 
 h1 {
-  font-size: clamp(2.4rem, 5.3vw, 4.4rem);
-  letter-spacing: 0.02em;
+  font-size: clamp(2.2rem, 5.1vw, 4rem);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .tagline {
   margin: 0.2rem 0 0;
-  font-size: 1.03rem;
+  font-size: 1rem;
+  color: var(--muted);
 }
 
 .divider {
   height: 2px;
-  background: linear-gradient(90deg, transparent 0%, var(--accent) 15%, var(--accent) 85%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, var(--accent) 20%, var(--accent-2) 50%, var(--accent) 80%, transparent 100%);
   margin: 0.9rem 0 1rem;
 }
 
@@ -79,6 +82,11 @@ h1 {
 a {
   color: var(--accent);
   text-underline-offset: 2px;
+  transition: color 120ms ease;
+}
+
+a:hover {
+  color: #095ec7;
 }
 
 .lead {
@@ -88,7 +96,6 @@ a {
   gap: 1.6rem;
   align-items: center;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--border);
 }
 
 .profile {
@@ -97,9 +104,10 @@ a {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   object-position: center;
-  border: 6px solid #f3ebdc;
-  outline: 1px solid #ad9e86;
+  border: 6px solid #e9f2ff;
+  outline: 1px solid #86a9d9;
   filter: saturate(0.95) contrast(1.03);
+  border-radius: 14px;
 }
 
 .kicker {
@@ -158,6 +166,20 @@ a {
   padding: 0;
 }
 
+.tech-stack-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.45rem 0 0.7rem;
+}
+
+.tech-badge {
+  height: 28px;
+  width: auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(15, 123, 255, 0.2);
+}
+
 .link-row {
   display: flex;
   flex-wrap: wrap;
@@ -184,8 +206,9 @@ a {
 
 .doc-carousel {
   border: 1px solid var(--border);
-  background: #fffdf8;
+  background: #f8fbff;
   padding: 0.8rem;
+  border-radius: 12px;
 }
 
 .doc-head {
@@ -198,16 +221,18 @@ a {
 
 .doc-nav {
   border: 1px solid var(--border);
-  background: #f4eee1;
+  background: #edf4ff;
   color: var(--ink);
   cursor: pointer;
   height: 40px;
+  width: 80px;
   font-size: 1.2rem;
   line-height: 1;
+  border-radius: 16px;
 }
 
 .doc-nav:hover {
-  background: #ede3d0;
+  background: #dceaff;
 }
 
 .doc-tools {
@@ -253,7 +278,8 @@ a {
   width: 100%;
   height: 800px;
   border: 1px solid var(--border);
-  background: #f5f0e5;
+  background: #eef5ff;
+  border-radius: 10px;
 }
 
 .reveal {
@@ -309,6 +335,10 @@ a {
 
   .doc-head {
     grid-template-columns: 38px 1fr 38px;
+  }
+
+  .tech-badge {
+    height: 25px;
   }
 
   .pdf-viewer {
