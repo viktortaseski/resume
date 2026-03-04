@@ -143,19 +143,28 @@
         <h3>Projects</h3>
         <div class="project">
           <h4>Railroads (University Project)</h4>
-          <p>Java + MPJ Express project using a <strong>Genetic Algorithm</strong> and <strong>DFS</strong> for distributed execution.</p>
+          <p>Java + MPJ Express project using a <strong>Genetic Algorithm</strong> and <strong>DFS</strong> for
+            distributed execution.</p>
           <ul>
-            <li>Up to about 4.9x faster compute time (parallel vs sequential) based on Table 1 results.</li>
-            <li>Parameterized mutation/crossover with profiling and reproducibility testing.</li>
+            <li>Implemented a <b>Genetic Algorithm + DFS</b> to find the most affordable railroad map for a given set of
+              trains
+              and stations.</li>
+            <li>Parallel computation achieved up to about <b>4.9x faster compute time</b> in comparison to sequential
+              results.</li>
+            <li>Distributed (via MPJ Express) achieved <b>~60% faster runtime</b> vs. sequential.</li>
+            <li>Implemented Fitness function, Parameterized mutation/crossover with profiling and reproducibility
+              testing.</li>
           </ul>
           <p class="muted">
             Performance comparison table is available in the report on page 3.
-            <a href="assets/docs/Report_Railroads.pdf#page=3" target="_blank" rel="noopener noreferrer">Open report</a>
           </p>
           <p class="link-row">
             <a href="https://github.com/viktortaseski/Railroads" target="_blank"
               rel="noopener noreferrer">Repository</a>
             <a href="https://www.youtube.com/watch?v=1HUcuTYmTCM" target="_blank" rel="noopener noreferrer">Video</a>
+            <a href="https://github.com/viktortaseski/Railroads/blob/main/results.txt" target="_blank"
+              rel="noopener noreferrer">Results</a>
+            <a href="assets/docs/Report_Railroads.pdf#page=3" target="_blank" rel="noopener noreferrer">Open report</a>
           </p>
         </div>
 
@@ -204,20 +213,20 @@
       <div class="documents-intro">
         <h3>Document Archive</h3>
         <p>Open and read each PDF directly below. Download links are available for each document.</p>
-        <p class="muted" id="doc-title">Curriculum Vitae (PDF)</p>
+        <p class="muted" id="doc-title">Railroads - Project Report (PDF)</p>
       </div>
       <article class="doc-carousel" id="doc-carousel">
         <div class="doc-tools">
           <button class="doc-nav" id="doc-prev" type="button" aria-label="Previous PDF">&#8592;</button>
-          <a id="doc-open" href="assets/docs/Viktor_Taseski_CV.pdf" target="_blank" rel="noopener noreferrer">Open</a>
-          <a id="doc-download" href="assets/docs/Viktor_Taseski_CV.pdf" download="Viktor_Taseski_CV.pdf">Download</a>
+          <a id="doc-open" href="assets/docs/Report_Railroads.pdf" target="_blank" rel="noopener noreferrer">Open</a>
+          <a id="doc-download" href="assets/docs/Report_Railroads.pdf" download="Report_Railroads.pdf">Download</a>
           <button class="doc-nav" id="doc-next" type="button" aria-label="Next PDF">&#8594;</button>
           <span class="doc-count" id="doc-count">1 / 4</span>
         </div>
-        <object id="doc-viewer" data="assets/docs/Viktor_Taseski_CV.pdf" type="application/pdf" class="pdf-viewer">
+        <object id="doc-viewer" data="assets/docs/Report_Railroads.pdf" type="application/pdf" class="pdf-viewer">
           <p>
             PDF preview unavailable.
-            <a id="doc-fallback-link" href="assets/docs/Viktor_Taseski_CV.pdf" target="_blank"
+            <a id="doc-fallback-link" href="assets/docs/Report_Railroads.pdf" target="_blank"
               rel="noopener noreferrer">Open document</a>
           </p>
         </object>
@@ -229,16 +238,6 @@
     (function () {
       const docs = [
         {
-          title: "Curriculum Vitae (PDF)",
-          url: "assets/docs/Viktor_Taseski_CV.pdf",
-          filename: "Viktor_Taseski_CV.pdf"
-        },
-        {
-          title: "Court Case Management System - SRS (PDF)",
-          url: "assets/docs/SRS_Court_Case_Management_System.pdf",
-          filename: "SRS_Court_Case_Management_System.pdf"
-        },
-        {
           title: "Railroads - Project Report (PDF)",
           url: "assets/docs/Report_Railroads.pdf",
           filename: "Report_Railroads.pdf"
@@ -247,6 +246,16 @@
           title: "Ticket Office - Project Report (PDF)",
           url: "assets/docs/TicketOffice_Report.pdf",
           filename: "TicketOffice_Report.pdf"
+        },
+        {
+          title: "Court Case Management System - SRS (PDF)",
+          url: "assets/docs/SRS_Court_Case_Management_System.pdf",
+          filename: "SRS_Court_Case_Management_System.pdf"
+        },
+        {
+          title: "Curriculum Vitae (PDF)",
+          url: "assets/docs/Viktor_Taseski_CV.pdf",
+          filename: "Viktor_Taseski_CV.pdf"
         }
       ];
 
