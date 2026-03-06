@@ -337,6 +337,38 @@ a:hover {
     grid-template-columns: 38px 1fr 38px;
   }
 
+  .doc-tools {
+    grid-template-columns: repeat(4, auto);
+    justify-content: center;
+    column-gap: 0.45rem;
+    row-gap: 0.45rem;
+  }
+
+  .doc-tools > :nth-child(1) {
+    grid-column: 1;
+  }
+
+  .doc-tools > :nth-child(2) {
+    grid-column: 2;
+  }
+
+  .doc-tools > :nth-child(3) {
+    grid-column: 3;
+  }
+
+  .doc-tools > :nth-child(4) {
+    grid-column: 4;
+  }
+
+  .doc-nav {
+    width: 58px;
+    height: 36px;
+  }
+
+  .doc-tools a {
+    font-size: 0.84rem;
+  }
+
   .tech-badge {
     height: 25px;
   }
@@ -347,6 +379,6 @@ a:hover {
 
   .doc-count {
     grid-column: 1 / -1;
-    justify-self: end;
+    justify-self: center;
   }
 }
