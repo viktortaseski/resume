@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Viktor Taseski | Designs</title>
+  <meta name="description" content="Graphic design portfolio by Viktor Taseski." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main class="page">
+    <header class="masthead">
+      <p class="eyebrow">Portfolio</p>
+      <h1>Design Work</h1>
+      <p class="intro">Selected posters, logos, and visual assets created for events, organizations, and product ideas.</p>
+      <a class="back-link" href="/">Back to resume</a>
+    </header>
+
+    <section class="viewer" id="viewer">
+      <div class="viewer-head">
+        <button id="prev" type="button" class="nav-btn" aria-label="Previous design">&#8592;</button>
+        <p id="title" class="title">Dentra Poster</p>
+        <button id="next" type="button" class="nav-btn" aria-label="Next design">&#8594;</button>
+      </div>
+
+      <article class="stage" id="stage" aria-live="polite"></article>
+
+      <div class="viewer-meta">
+        <span id="count" class="count">1 / 17</span>
+        <a id="open" href="/assets/designs/dentra-poster.png" target="_blank" rel="noopener noreferrer">Open original</a>
+      </div>
+    </section>
+
+    <section class="thumbs-wrap">
+      <h2>All Designs</h2>
+      <div class="thumbs" id="thumbs"></div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      const items = [
+        "dentra-poster.png",
+        "7.png",
+        "Anisija.svg",
+        "logo.png",
+        "poster-ski-final.png",
+        "tanec.png",
+        "logo2.pdf",
+        "10.png",
+        "self-serv06.pdf",
+        "self-serv04.pdf",
+        "self-serv05.pdf",
+        "anisija-logo.png",
+        "self-serv03.pdf",
+        "poezija-2026.svg",
+        "5-maj.png",
+        "avtorot-deteto.png",
+        "kiril-metodij.png"
+      ];
+
+      const stage = document.getElementById("stage");
+      const title = document.getElementById("title");
+      const count = document.getElementById("count");
+      const open = document.getElementById("open");
+      const prev = document.getElementById("prev");
+      const next = document.getElementById("next");
+      const thumbs = document.getElementById("thumbs");
+      const viewer = document.getElementById("viewer");
+      const basePath = "/assets/designs/";
+
+      let current = 0;
+      let touchStartX = null;
+      const swipeThreshold = 45;
+
+      function ext(file) {
+        return file.toLowerCase().split(".").pop();
+      }
+
+      function isPdf(file) {
+        return ext(file) === "pdf";
+      }
+
+      function label(file) {
+        const name = file.replace(/\.[^.]+$/, "").replace(/[-_]/g, " ");
+        return name.replace(/\b\w/g, function (char) { return char.toUpperCase(); });
+      }
+
+      function url(file) {
+        return basePath + file;
+      }
+
+      function render(index) {
+        const file = items[index];
+        const fileUrl = url(file);
+        const text = label(file);
+
+        title.textContent = text;
+        count.textContent = (index + 1) + " / " + items.length;
+        open.setAttribute("href", fileUrl);
+
+        if (isPdf(file)) {
+          stage.innerHTML = '<object class="pdf" data="' + fileUrl + '" type="application/pdf">' +
+            '<p>Preview unavailable. <a href="' + fileUrl + '" target="_blank" rel="noopener noreferrer">Open PDF</a></p>' +
+            "</object>";
+        } else {
+          stage.innerHTML = '<img class="slide-image" src="' + fileUrl + '" alt="' + text + '" loading="eager" />';
+        }
+
+        const buttons = thumbs.querySelectorAll("button");
+        buttons.forEach(function (button, i) {
+          button.classList.toggle("active", i === index);
+        });
+      }
+
+      function shift(step) {
+        current = (current + step + items.length) % items.length;
+        render(current);
+      }
+
+      items.forEach(function (file, index) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "thumb";
+        button.setAttribute("aria-label", "Open " + label(file));
+
+        if (isPdf(file)) {
+          button.innerHTML = '<span class="pdf-chip">PDF</span><span class="thumb-name">' + label(file) + "</span>";
+        } else {
+          button.innerHTML = '<img src="' + url(file) + '" alt="' + label(file) + '" loading="lazy" />';
+        }
+
+        button.addEventListener("click", function () {
+          current = index;
+          render(current);
+        });
+
+        thumbs.appendChild(button);
+      });
+
+      prev.addEventListener("click", function () {
+        shift(-1);
+      });
+
+      next.addEventListener("click", function () {
+        shift(1);
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowLeft") {
+          shift(-1);
+        }
+        if (event.key === "ArrowRight") {
+          shift(1);
+        }
+      });
+
+      viewer.addEventListener("touchstart", function (event) {
+        touchStartX = event.changedTouches[0].screenX;
+      }, { passive: true });
+
+      viewer.addEventListener("touchend", function (event) {
+        if (touchStartX === null) {
+          return;
+        }
+        const delta = event.changedTouches[0].screenX - touchStartX;
+        if (Math.abs(delta) > swipeThreshold) {
+          shift(delta > 0 ? -1 : 1);
+        }
+        touchStartX = null;
+      }, { passive: true });
+
+      render(current);
+    })();
+  </script>
+</body>
+
+</html>

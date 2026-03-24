@@ -1,0 +1,248 @@
+:root {
+  --bg-a: #f7f0e4;
+  --bg-b: #e9f0fb;
+  --paper: #fffdf8;
+  --ink: #1a2438;
+  --muted: #4e5f7f;
+  --line: #cfd9ee;
+  --accent: #e06d2f;
+  --accent-2: #1e7b73;
+  --shadow: rgba(26, 36, 56, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Outfit", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 18% 12%, rgba(224, 109, 47, 0.2) 0%, transparent 36%),
+    radial-gradient(circle at 84% 8%, rgba(30, 123, 115, 0.22) 0%, transparent 40%),
+    linear-gradient(160deg, var(--bg-a) 0%, var(--bg-b) 58%, #f2f7ff 100%);
+}
+
+.page {
+  width: min(1160px, 94vw);
+  margin: 1.4rem auto 2rem;
+  padding: 1.35rem;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: linear-gradient(180deg, #ffffff 0%, var(--paper) 100%);
+  box-shadow: 0 24px 54px var(--shadow);
+}
+
+.masthead {
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.76rem;
+  color: var(--muted);
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-family: "Fraunces", Georgia, serif;
+}
+
+h1 {
+  font-size: clamp(2.1rem, 4.8vw, 3.8rem);
+  line-height: 1.05;
+}
+
+.intro {
+  margin: 0.55rem auto 0.45rem;
+  max-width: 760px;
+  color: var(--muted);
+}
+
+.back-link {
+  font-weight: 600;
+  color: var(--accent-2);
+  text-underline-offset: 3px;
+}
+
+.viewer {
+  margin-top: 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+  padding: 0.8rem;
+}
+
+.viewer-head {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.title {
+  margin: 0;
+  text-align: center;
+  font-size: clamp(1rem, 2.4vw, 1.35rem);
+  font-weight: 600;
+}
+
+.nav-btn {
+  border: 1px solid var(--line);
+  background: #fff9f1;
+  color: var(--ink);
+  cursor: pointer;
+  border-radius: 11px;
+  width: 56px;
+  height: 40px;
+  font-size: 1.2rem;
+}
+
+.nav-btn:hover {
+  background: #fff2de;
+}
+
+.stage {
+  margin-top: 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  min-height: 470px;
+  background: linear-gradient(160deg, #f8fbff 0%, #f4f9ff 100%);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  max-height: 72vh;
+}
+
+.pdf {
+  width: 100%;
+  height: 72vh;
+  min-height: 480px;
+  border: none;
+}
+
+.viewer-meta {
+  margin-top: 0.55rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.viewer-meta a {
+  color: var(--accent-2);
+  font-weight: 600;
+}
+
+.count {
+  color: var(--muted);
+}
+
+.thumbs-wrap {
+  margin-top: 1.2rem;
+}
+
+.thumbs-wrap h2 {
+  margin-bottom: 0.45rem;
+  font-size: clamp(1.45rem, 2.8vw, 2rem);
+}
+
+.thumbs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 0.6rem;
+}
+
+.thumb {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 0;
+  background: #fbfdff;
+  min-height: 88px;
+  cursor: pointer;
+  transition: transform 130ms ease, box-shadow 130ms ease, border-color 130ms ease;
+  display: grid;
+  place-items: center;
+}
+
+.thumb:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 18px rgba(17, 50, 79, 0.12);
+}
+
+.thumb.active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(224, 109, 47, 0.15);
+}
+
+.thumb img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+}
+
+.pdf-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 28px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  color: #fff;
+  font-weight: 700;
+  background: linear-gradient(130deg, #d75520 0%, #e5871a 100%);
+}
+
+.thumb-name {
+  display: block;
+  margin-top: 0.5rem;
+  padding: 0 0.5rem 0.5rem;
+  color: var(--muted);
+  font-size: 0.77rem;
+  text-align: center;
+}
+
+@media (max-width: 840px) {
+  .page {
+    padding: 0.9rem;
+    margin-top: 0.9rem;
+  }
+
+  .viewer {
+    padding: 0.62rem;
+  }
+
+  .stage {
+    min-height: 330px;
+  }
+
+  .slide-image {
+    max-height: 56vh;
+  }
+
+  .pdf {
+    min-height: 360px;
+    height: 56vh;
+  }
+
+  .thumbs {
+    grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+  }
+
+  .thumb img {
+    height: 92px;
+  }
+}
